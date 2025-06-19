@@ -1,43 +1,44 @@
-# numbr contact-address book
-Contact Management or Address Book application
+# Address Book
 
-user action :
-- click add contact
-- click edit contact
-- click delete contact
+User Actions:
 
-  # add contact
-  - show create contact form
-  - fill required field
-  - name, phone, email
-  - submit form
-  - validation check
-  - invalid : show error messages
-  - valid : save to database
-  - save successfuly?
-  - no : show system error
-  - yes : show success meesage
-  - end : contact list dashboard
+- Add Contact
+- Edit Contact
+- Delete Contact
 
- # edit contact
- - load contact data
- - show edit form with pre-filled data
- - submit change
- - validation check
- - invalid : show error messages
-  - valid : update database
-  - save successfuly?
-  - no : show system error
-  - yes : show success meesage
-  - end : contact list dashboard
+## Add Contact
 
-   # delete contact
- - show delete confirmation
- - confirm delete?
- - cancel : still contact list dashboard
- - confirm : remove from database
-  - delete successfuly?
-  - no : show system error
-  - yes : show success meesage
-  - end : contact list dashboard
+- Display Create Contact Form
+- Fill Required Fields (Name, Phone, Email)
+- Submit Form
+- Validate Form
+- Invalid: Display Error Messages
+- Valid: Save to Database
+- Save Successful?
+- No: Display System Error
+- Yes: Display Success Message
+- End: Contact List Dashboard
 
+## Edit Contact
+
+- Load Contact Data
+- Display Edit Form with Pre-Filled Data
+- Submit Changes
+- Validate Form
+- Invalid: Display Error Messages
+- Valid: Update Database
+- Save Successful?
+- No: Display System Error
+- Yes: Display Success Message
+- End: Contact List Dashboard
+
+## Delete Contact
+
+- Display Delete Confirmation
+- Confirm Delete?
+- Cancel: Return to Contact List Dashboard
+- Confirm: Remove from Database
+- Delete Successful?
+- No: Display System Error
+- Yes: Display Success Message
+- End: Contact List Dashboard

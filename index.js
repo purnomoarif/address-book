@@ -13,4 +13,4 @@ const contact = {
   isFavorited: true,
 };
 
-console.log(Contact);
+console.log(contact);

@@ -1,14 +1,18 @@
 # Address Book
 
-access at https://address-book-two-liard.vercel.app/
+A simple address book application built with HTML and JavaScript.
 
-User Actions:
+Access at <https://address-book-two-liard.vercel.app>
+
+<!-- TODO: <https://address-book.purnomoarif.com> -->
+
+## User Actions
 
 - Add Contact
 - Edit Contact
 - Delete Contact
 
-## Add Contact
+### Add Contact
 
 - Display Create Contact Form
 - Fill Required Fields (Name, Phone, Email)
@@ -21,7 +25,7 @@ User Actions:
 - Yes: Display Success Message
 - End: Contact List Dashboard
 
-## Edit Contact
+### Edit Contact
 
 - Load Contact Data
 - Display Edit Form with Pre-Filled Data
@@ -34,7 +38,7 @@ User Actions:
 - Yes: Display Success Message
 - End: Contact List Dashboard
 
-## Delete Contact
+### Delete Contact
 
 - Display Delete Confirmation
 - Confirm Delete?

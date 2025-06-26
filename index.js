@@ -4,28 +4,43 @@ const contacts = [
     name: "Arif Purnomo",
     phone: "+628561066962",
     email: "purnomoarifdepok@gmail.com",
-    address: "Osaka, Japan",
+    address: {
+      city: "Depok",
+      country: "Indonesia",
+    },
   },
   {
     id: 2,
+    name: "Purnomo Arif",
+    phone: "+81 123456",
+    email: "purnomoarifwibu@gmail.com",
+    address: {
+      city: "Osaka",
+      country: "Japan",
+    },
+  },
+  {
+    id: 3,
     name: "Dinda Ayu Ratnasari",
     phone: "+6285719214858",
     email: "dindaaratnasari@gmail.com",
-    address: "Jakarta, Indonesia",
+    address: {
+      city: "Jakarta",
+      country: "Indonesia",
+    },
   },
 ];
-console.log(contacts);
 
 function showContacts() {
-  for (let id = 0; id < contacts.length; id++) {
-    const contact = contacts[id];
+  for (let index = 0; index < contacts.length; index++) {
+    const contact = contacts[index];
 
     console.log(`
       id: ${contact.id}
-      name: ${contact.name} 
-      phone: ${contact.phone}
-      email: ${contact.email}
-      address: ${contact.address}
+      Name: ${contact.name} 
+      Phone: ${contact.phone}
+      Email: ${contact.email}
+      Address: ${contact.address.city}, ${contact.address.country}
       `);
   }
 }

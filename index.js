@@ -17,10 +17,11 @@ const contacts = [
 console.log(contacts);
 
 function showContacts() {
-  for (let index = 0; index < contacts.length; index++) {
-    const contact = contacts[index];
+  for (let id = 0; id < contacts.length; id++) {
+    const contact = contacts[id];
 
     console.log(`
+      id: ${contact.id}
       name: ${contact.name} 
       phone: ${contact.phone}
       email: ${contact.email}

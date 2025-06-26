@@ -1,11 +1,13 @@
 const contacts = [
   {
+    id: 1,
     name: "Arif Purnomo",
     phone: "+628561066962",
     email: "purnomoarifdepok@gmail.com",
     address: "Osaka, Japan",
   },
   {
+    id: 2,
     name: "Dinda Ayu Ratnasari",
     phone: "+6285719214858",
     email: "dindaaratnasari@gmail.com",

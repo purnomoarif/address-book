@@ -33,6 +33,7 @@ const contacts = [
     birthdate: new Date("1997-10-28"),
   },
 ];
+console.log(contacts[2].birthdate.getFullYear());
 
 function getContacts() {
   console.log(contacts);
@@ -43,7 +44,7 @@ function getContacts() {
       Phone: ${contact.phone}
       Email: ${contact.email}
       Address: ${contact.address.city}, ${contact.address.country}
-      Birthdate: ${contact.birthdate.toLocaleDateString()}
+      Birthdate: ${contact.birthdate()}
     `);
   });
 }

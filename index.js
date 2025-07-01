@@ -44,7 +44,7 @@ function getContacts() {
       Phone: ${contact.phone}
       Email: ${contact.email}
       Address: ${contact.address.city}, ${contact.address.country}
-      Birthdate: ${contact.birthdate()}
+      Birthdate: ${contact.birthdate}
     `);
   });
 }
@@ -63,4 +63,40 @@ function showContacts() {
   }
 }
 
-showContacts();
+function addContact(contactInput) {
+  const contactData = {
+    name: contactInput.name,
+    phone: contactInput.phone,
+    email: contactInput.email,
+    address: {
+      city: contactInput.address.city,
+      country: contactInput.address.country,
+    },
+    birthdate: new Date(contactInput.birthdate),
+  };
+  contacts.push(contactData);
+}
+
+function deleteContact(contactDelete) {
+  const filteredContacts = contacts.filter(
+    (contact) => contact.id !== contactDelete.id
+  );
+  if (filteredContacts.length === contacts.length) {
+    console.log("Contact not found!");
+  } else {
+    console.log("Contact deleted successfully!");
+  }
+  return filteredContacts;
+}
+
+function editContact(id, updatedContact) {
+  const index = contacts.findIndex((contact) => contact.id === id);
+  if (index !== -1) {
+    contacts[index] = { ...contacts[index], ...updatedContact };
+    console.log("Contact updated successfully!");
+  } else {
+    console.log("Contact not found!");
+  }
+}
+
+localStorage.setItem("test", 123);

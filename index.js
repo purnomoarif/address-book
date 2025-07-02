@@ -34,7 +34,6 @@ const contacts = [
     birthdate: new Date("1997-10-28"),
   },
 ];
-console.log(contacts[2].birthdate.getFullYear());
 
 // Function to get contacts and display them
 function getContacts() {
@@ -80,7 +79,7 @@ function addContact(contactInput) {
   contacts.push(contactData);
 }
 
-function deleteContact(contactDelete) {
+function deleteContact(id, contactDelete) {
   const filteredContacts = contacts.filter(
     (contact) => contact.id !== contactDelete.id
   );
@@ -89,6 +88,7 @@ function deleteContact(contactDelete) {
   } else {
     console.log("Contact deleted successfully!");
   }
+
   return filteredContacts;
 }
 
@@ -123,3 +123,18 @@ const contact = [
 //localStorage.setItem("contacts", JSON.stringify(contacts));
 const storageContacts = JSON.parse(localStorage.getItem("contacts"));
 console.log(storageContacts);
+
+// Save contacts to local Storage
+function saveContact(dataContact) {
+  localStorage.setItem("contacts", JSON.stringify(dataContact));
+}
+
+function getContact() {
+  const storedContacts = JSON.parse(localStorage.getItem("contacts"));
+
+  if (!storedContacts) {
+    console.log("No contacts found in local storage.");
+    return [];
+  }
+  return storedContacts;
+}

@@ -1,3 +1,4 @@
+// data class Contact
 const contacts = [
   {
     id: 1,
@@ -35,6 +36,7 @@ const contacts = [
 ];
 console.log(contacts[2].birthdate.getFullYear());
 
+// Function to get contacts and display them
 function getContacts() {
   console.log(contacts);
   contacts.forEach((contact) => {
@@ -63,6 +65,7 @@ function showContacts() {
   }
 }
 
+// Function add, delete, and edit contacts
 function addContact(contactInput) {
   const contactData = {
     name: contactInput.name,
@@ -99,4 +102,24 @@ function editContact(id, updatedContact) {
   }
 }
 
-localStorage.setItem("test", 123);
+// localStorage.setItem("contacts", JSON.stringify(contacts));
+const contact = [
+  {
+    name: "Arif Purnomo",
+    address: "Depok, Indonesia",
+    email: "purnomoarifdepok@gmail.com",
+  },
+  {
+    name: "Purnomo Arif",
+    address: "Osaka, Japan",
+    email: "purnomoarifwibu@gmail.com",
+  },
+  {
+    name: "Dinda Ayu Ratnasari",
+    address: "Jakarta, Indonesia",
+    email: "dindaaratnasari@gmail.com",
+  },
+];
+//localStorage.setItem("contacts", JSON.stringify(contacts));
+const storageContacts = JSON.parse(localStorage.getItem("contacts"));
+console.log(storageContacts);

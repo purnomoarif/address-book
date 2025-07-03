@@ -120,7 +120,7 @@ const contact = [
     email: "dindaaratnasari@gmail.com",
   },
 ];
-//localStorage.setItem("contacts", JSON.stringify(contacts));
+localStorage.setItem("contacts", JSON.stringify(contacts));
 const storageContacts = JSON.parse(localStorage.getItem("contacts"));
 console.log(storageContacts);
 

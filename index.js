@@ -1,5 +1,5 @@
 // data class Contact
-const contacts = [
+const dataContacts = [
   {
     id: 1,
     name: "Arif Purnomo",
@@ -35,9 +35,12 @@ const contacts = [
   },
 ];
 
+function saveToLocalStorage(contacts) {
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+}
+
 // Function to get contacts and display them
-function getContacts() {
-  console.log(contacts);
+function renderContacts(contacts) {
   contacts.forEach((contact) => {
     console.log(`
       id: ${contact.id}
@@ -50,22 +53,8 @@ function getContacts() {
   });
 }
 
-function showContacts() {
-  for (let index = 0; index < contacts.length; index++) {
-    const contact = contacts[index];
-
-    console.log(`
-      id: ${contact.id}
-      Name: ${contact.name} 
-      Phone: ${contact.phone}
-      Email: ${contact.email}
-      Address: ${contact.address.city}, ${contact.address.country}
-      `);
-  }
-}
-
 // Function add, delete, and edit contacts
-function addContact(contactInput) {
+function addContact(contacts, contactInput) {
   const contactData = {
     name: contactInput.name,
     phone: contactInput.phone,
@@ -76,23 +65,25 @@ function addContact(contactInput) {
     },
     birthdate: new Date(contactInput.birthdate),
   };
+
   contacts.push(contactData);
+
+  saveToLocalStorage(contacts);
 }
 
-function deleteContact(id, contactDelete) {
-  const filteredContacts = contacts.filter(
-    (contact) => contact.id !== contactDelete.id
-  );
+function deleteContact(id) {
+  const filteredContacts = contacts.filter((contact) => contact.id !== id);
+
   if (filteredContacts.length === contacts.length) {
     console.log("Contact not found!");
   } else {
     console.log("Contact deleted successfully!");
   }
 
-  return filteredContacts;
+  saveToLocalStorage(filteredContacts);
 }
 
-function editContact(id, updatedContact) {
+function editContact(contacts, id, updatedContact) {
   const index = contacts.findIndex((contact) => contact.id === id);
   if (index !== -1) {
     contacts[index] = { ...contacts[index], ...updatedContact };
@@ -100,41 +91,12 @@ function editContact(id, updatedContact) {
   } else {
     console.log("Contact not found!");
   }
+
+  saveToLocalStorage(contacts);
 }
 
-// localStorage.setItem("contacts", JSON.stringify(contacts));
-const contact = [
-  {
-    name: "Arif Purnomo",
-    address: "Depok, Indonesia",
-    email: "purnomoarifdepok@gmail.com",
-  },
-  {
-    name: "Purnomo Arif",
-    address: "Osaka, Japan",
-    email: "purnomoarifwibu@gmail.com",
-  },
-  {
-    name: "Dinda Ayu Ratnasari",
-    address: "Jakarta, Indonesia",
-    email: "dindaaratnasari@gmail.com",
-  },
-];
-localStorage.setItem("contacts", JSON.stringify(contacts));
+localStorage.setItem("contacts", JSON.stringify(dataContacts));
+
 const storageContacts = JSON.parse(localStorage.getItem("contacts"));
-console.log(storageContacts);
 
-// Save contacts to local Storage
-function saveContact(dataContact) {
-  localStorage.setItem("contacts", JSON.stringify(dataContact));
-}
-
-function getContact() {
-  const storedContacts = JSON.parse(localStorage.getItem("contacts"));
-
-  if (!storedContacts) {
-    console.log("No contacts found in local storage.");
-    return [];
-  }
-  return storedContacts;
-}
+renderContacts(storageContacts);

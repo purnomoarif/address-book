@@ -1,11 +1,61 @@
-const fruits = [
-  { name: "apple", price: 1.2, quantity: 10 },
-  { name: "banana", price: 0.5, quantity: 20 },
-  { name: "cherry", price: 2.0, quantity: 15 },
-  { name: "orange", price: 3.0, quantity: 5 },
+let dataContacts = [
+  {
+    id: 1,
+    name: "Arif Purnomo",
+    phone: "+628561066962",
+    email: "purnomoarifdepok@gmail.com",
+    address: {
+      city: "Depok",
+      country: "Indonesia",
+    },
+    birthdate: new Date("1989-07-28"),
+  },
+  {
+    id: 2,
+    name: "Purnomo Arif",
+    phone: "+81 123456",
+    email: "purnomoarifwibu@gmail.com",
+    address: {
+      city: "Osaka",
+      country: "Japan",
+    },
+    birthdate: new Date("1990-01-01"),
+  },
+  {
+    id: 3,
+    name: "Dinda Ayu Ratnasari",
+    phone: "+6285719214858",
+    email: "dindaaratnasari@gmail.com",
+    address: {
+      city: "Jakarta",
+      country: "Indonesia",
+    },
+    birthdate: new Date("1997-10-28"),
+  },
 ];
 
-//localStorage.setItem("fruits", JSON.stringify(fruits));
+function deleteContact(id) {
+  const updatedContacts = dataContacts.filter((contact) => contact.id !== id);
+  dataContacts = updatedContacts;
+  renderContacts(dataContacts);
+}
 
-const storageFruits = JSON.parse(localStorage.getItem("fruits"));
-console.log(storageFruits);
+function renderContacts(contacts) {
+  const contactsListElement = document.getElementById("contacts-list");
+
+  const contactsElements = contacts
+    .map((contact) => {
+      return `<li>
+      <p>Name: ${contact.name}</p>
+      <p>Phone: ${contact.phone}</p>
+      <p>Email: ${contact.email}</p>
+      <p>Address: ${contact.address.city}, ${contact.address.country}</p>
+      <p>Birthdate: ${contact.birthdate.toLocaleDateString()}</p>
+      <button onclick="deleteContact(${contact.id})">Delete</button>
+      </li>`;
+    })
+    .join("");
+  contactsListElement.innerHTML = contactsElements;
+}
+
+renderContacts(dataContacts);

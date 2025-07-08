@@ -1,6 +1,6 @@
 # Address Book
 
-Access at https://address-book-two-liard.vercel.app/
+Access at https://address-book.purnomoarif.com/
 
 User Actions:
 

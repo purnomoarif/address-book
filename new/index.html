@@ -11,7 +11,7 @@
       class="bg-white mx-auto max-w-8xl p-4 flex items-center justify-between shadow-md"
     >
       <h1 class="text-2xl font-semibold">Create New Contact</h1>
-      <a href="/" class="rounded-lg px-4 py-2 bg-gray-300 text-gray-800">
+      <a href="/" class="rounded-lg px-4 py-2 bg-lime-500 text-white">
         Back to Home
       </a>
     </header>
@@ -22,22 +22,16 @@
         <form method="post" id="new-contact-form" class="space-y-4">
           <input
             type="text"
-            name="avatar"
+            name="name"
             class="w-full border border-gray-300 px-4 py-2 rounded-md"
-            placeholder="Avatar URL (e.g., https://i.pravatar.cc/150?img=1)"
-          />
-          <input
-            type="text"
-            name="full-name"
-            class="w-full border border-gray-300 px-4 py-2 rounded-md"
-            placeholder="Full Name"
+            placeholder="Name"
             required
           />
           <input
             type="text"
-            name="company"
+            name="phone"
             class="w-full border border-gray-300 px-4 py-2 rounded-md"
-            placeholder="Company"
+            placeholder="Phone"
           />
           <input
             type="email"
@@ -48,9 +42,9 @@
           />
           <input
             type="tel"
-            name="phone"
+            name="address"
             class="w-full border border-gray-300 px-4 py-2 rounded-md"
-            placeholder="Phone"
+            placeholder="Address"
           />
           <input
             type="date"
@@ -59,7 +53,7 @@
           />
           <button
             type="submit"
-            class="w-full rounded-lg px-4 py-2 bg-blue-500 text-white"
+            class="w-full rounded-lg px-4 py-2 bg-lime-500 text-white"
           >
             Add Contact
           </button>

@@ -8,39 +8,24 @@ const searchedContact = loadContacts().find(
 const contactCardElement = document.getElementById("contact-card");
 
 contactCardElement.innerHTML = `
-  <img
-    src="${searchedContact.avatar}"
-    alt="Contact Avatar"
-    class="w-24 h-24 rounded-full shadow"
-  />
-  <h2 id="full-name" class="text-2xl font-semibold">${searchedContact.fullName}</h2>
-  <p id="company" class="text-gray-600">${searchedContact.company}</p>
+  
+  <h2 id="full-name" class="text-2xl font-semibold">${searchedContact.name}</h2>
+  <p id="company" class="text-gray-600">${searchedContact.phone}</p>
 `;
 
 // Replace HTML values
 const contactDetailElement = document.getElementById("contact-detail");
 
 contactDetailElement.innerHTML = `
-  <img
-    src="${searchedContact.avatar}"
-    alt="Contact Avatar"
-    class="w-24 h-24 rounded-full shadow"
-  />
+  
   <div class="flex justify-start">
     <span class="text-gray-600">ID</span>
     <span class="text-gray-800 ml-20">${searchedContact.id}</span>
   </div>
+  
   <div class="flex justify-start">
-    <span class="text-gray-600">Avatar</span>
-    <span class="text-gray-800 ml-12">${searchedContact.avatar || null}</span>
-  </div>
-  <div class="flex justify-start">
-    <span class="text-gray-600">Full Name</span>
-    <span class="text-gray-800 ml-5">${searchedContact.fullName}</span>
-  </div>
-  <div class="flex justify-start">
-    <span class="text-gray-600">Company</span>
-    <span class="text-gray-800 ml-5">${searchedContact.company || null}</span>
+    <span class="text-gray-600">Name</span>
+    <span class="text-gray-800 ml-5">${searchedContact.name}</span>
   </div>
   <div class="flex justify-start">
     <span class="text-gray-600">Phone</span>
@@ -49,6 +34,10 @@ contactDetailElement.innerHTML = `
   <div class="flex justify-start">
     <span class="text-gray-600">Email</span>
     <span class="text-gray-800 ml-12">${searchedContact.email || null}</span>
+  </div>
+  <div class="flex justify-start">
+    <span class="text-gray-600">Address</span>
+    <span class="text-gray-800 ml-12">${searchedContact.address || null}</span>
   </div>
   <div class="flex justify-start">
     <span class="text-gray-600">Birthdate</span>

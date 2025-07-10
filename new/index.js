@@ -9,11 +9,11 @@ contactFormElement.addEventListener("submit", async (event) => {
   // Collect form data
   const formData = {
     id: generateId(loadContacts()),
-    avatar: contactFormData.get("avatar") || "https://i.pravatar.cc/150?img=1",
-    fullName: contactFormData.get("full-name"),
-    company: contactFormData.get("company") || null,
-    email: contactFormData.get("email") || null,
+
+    name: contactFormData.get("name"),
     phone: contactFormData.get("phone") || null,
+    email: contactFormData.get("email") || null,
+    address: contactFormData.get("address") || null,
     birthdate: contactFormData.get("birthdate")
       ? new Date(contactFormData.get("birthdate"))
       : null,

@@ -1,6 +1,6 @@
 # Address Book
 
-Access at https://address-book.purnomoarif.com/
+Live at https://address-book.purnomoarif.com/
 
 User Actions:
 

@@ -57,21 +57,15 @@ function renderContacts(contacts) {
       <li
         class="pt-4 flex items-center px-4 py-2 hover:bg-gray-50"
       >
-        <img 
-          src="${contact.avatar || "https://i.pravatar.cc/150?img=1"}"
-          alt="Avatar"
-          class="w-10 h-10 rounded-full"
-        />
+        
         <p class="ml-9 w-10">${contact.id}</p>
         <p class="w-36">${contact.name}</p>
         <p class="w-52">${contact.phone}</p>
         <p class="w-80">${contact.email}</p>
-        <p class="w-44">${contact.address.city}, ${contact.address.country}</p>
+        <p class="w-44">${contact.address}</p>
         <p class="w-44">${date}</p>
         <div>
-        <a href="/contacts/?id=${
-          contact.id
-        }" class="border rounded bg-blue-500 text-xs text-white px-1 py-0.5">View</a>
+        <a href="/contacts/?id=${contact.id}" class="border rounded bg-blue-500 text-xs text-white px-1 py-0.5">View</a>
           <button
             class="border rounded bg-red-500 text-xs text-white px-1 py-0.5"
             onclick="deleteContact(loadContacts(), ${contact.id})"
@@ -133,20 +127,16 @@ function addContact(contacts, newContactInput) {
 }
 
 function deleteContact(contacts, contactId) {
-  const filteredContacts = contacts.filter((contact) => {
-    return contact.id === contactId;
-  });
-
-  const filterContacts = contacts.filter((contact) => {
-    return contact.id != contactId;
-  });
+  const filteredContacts = contacts.filter(
+    (contact) => contact.id !== contactId
+  );
 
   if (filteredContacts.length <= 0) {
     console.log(`There is no contact with the ID ${contactId} to delete`);
     return;
   }
 
-  dataContacts = filterContacts;
+  dataContacts = filteredContacts;
   saveContacts(dataContacts);
   renderContacts(dataContacts);
 }
@@ -220,11 +210,6 @@ function formatDateTime(date) {
   });
 }
 
-/**
- * Run Address Book functions
- */
-
-// renderContacts(loadContacts());
 window.addEventListener("load", function () {
   renderContacts(loadContacts());
 });

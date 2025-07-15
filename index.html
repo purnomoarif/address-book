@@ -8,13 +8,9 @@
   </head>
   <body class="bg-gray-100 text-gray-800">
     <!-- Top Bar -->
-    <header
-      class="bg-white mx-auto max-w-8xl p-4 flex item-center justify-between shadow-md"
-    >
+    <header class="bg-white mx-auto max-w-8xl p-4 flex item-center justify-between shadow-md">
       <h1 class="text-2xl font-semibold">Address Book</h1>
-      <a href="/new" class="rounded-lg px-4 py-2 bg-lime-500 text-white">
-        Create Contact
-      </a>
+      <a href="/new" class="rounded-lg px-4 py-2 bg-lime-500 text-white"> Create Contact </a>
     </header>
 
     <main class="container mx-auto mt-8">
@@ -27,29 +23,22 @@
             name="q"
             placeholder="Search Contacts"
           />
-          <button
-            class="border rounded bg-lime-500 text-xs text-white px-4 py-2"
-            type="submit"
-          >
-            Search
-          </button>
+          <button class="border rounded bg-lime-500 text-xs text-white px-4 py-2" type="submit">Search</button>
         </div>
       </form>
       <!-- Contacts List -->
       <div class="bg-white rounded-lg shadow-sm">
         <h2 id="contacts-count">All Contacts - 0 contacts</h2>
-
         <hr />
         <div class="flex items-center bg-gray-100 font-semibold text-gray-700">
-          <h2 class="w-10">ID</h2>
-          <h2 class="w-36">name</h2>
-          <h2 class="w-52">phone</h2>
-          <h2 class="w-80">email</h2>
-          <h2 class="w-44">address</h2>
-          <h2 class="w-44">City</h2>
-          <h2 class="w-44">Country</h2>
-          <h2 class="w-44">Birthdate</h2>
-          <h2>Action</h2>
+          <p class="w-10">ID</p>
+          <p class="w-36">Name</p>
+          <p class="w-52">Phone</p>
+          <p class="w-80">Email</p>
+          <p class="w-44">Address</p>
+          <p class="w-44">Country</p>
+          <p class="w-44">Birthdate</p>
+          <p>Action</p>
         </div>
         <hr />
         <ul class="divide-y" id="contacts-list" class="space-y-4 divide-y">

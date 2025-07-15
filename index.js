@@ -38,9 +38,7 @@ function renderContacts(contacts) {
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get("q");
 
-  const contactsToDisplay = searchQuery
-    ? searchContacts(loadContacts(), searchQuery)
-    : loadContacts();
+  const contactsToDisplay = searchQuery ? searchContacts(loadContacts(), searchQuery) : loadContacts();
 
   console.log(contactsToDisplay);
 
@@ -57,12 +55,11 @@ function renderContacts(contacts) {
       <li
         class="pt-4 flex items-center px-4 py-2 hover:bg-gray-50"
       >
-        
         <p class="ml-9 w-10">${contact.id}</p>
         <p class="w-36">${contact.name}</p>
         <p class="w-52">${contact.phone}</p>
         <p class="w-80">${contact.email}</p>
-        <p class="w-44">${contact.address}</p>
+        <p class="w-44">${contact.address.city}, ${contact.address.country}</p>
         <p class="w-44">${date}</p>
         <div>
         <a href="/contacts/?id=${contact.id}" class="border rounded bg-blue-500 text-xs text-white px-1 py-0.5">View</a>
@@ -83,10 +80,8 @@ function renderContacts(contacts) {
 function searchContacts(contacts, searchTerm) {
   const searchedContacts = contacts.filter((contact) => {
     return (
-      (contact.name &&
-        contact.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (contact.phone &&
-        contact.phone.toLowerCase().includes(searchTerm.toLowerCase()))
+      (contact.name && contact.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (contact.phone && contact.phone.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
 
@@ -127,9 +122,7 @@ function addContact(contacts, newContactInput) {
 }
 
 function deleteContact(contacts, contactId) {
-  const filteredContacts = contacts.filter(
-    (contact) => contact.id !== contactId
-  );
+  const filteredContacts = contacts.filter((contact) => contact.id !== contactId);
 
   if (filteredContacts.length <= 0) {
     console.log(`There is no contact with the ID ${contactId} to delete`);
@@ -156,12 +149,9 @@ function updateContact(contacts, contactId, updateContactInput) {
     email: updateContactInput.email || originalContact.email,
     address: {
       city: updateContactInput.address.city || originalContact.address.city,
-      country:
-        updateContactInput.address.country || originalContact.address.country,
+      country: updateContactInput.address.country || originalContact.address.country,
     },
-    birthdate: new Date(
-      updateContactInput.birthdate || originalContact.birthdate
-    ),
+    birthdate: new Date(updateContactInput.birthdate || originalContact.birthdate),
   };
 
   const updatedContacts = contacts.map((contact) => {
@@ -181,9 +171,7 @@ function saveContacts(data) {
 }
 
 function loadContacts() {
-  const storageDataContacts = JSON.parse(
-    localStorage.getItem("storageDataContacts")
-  );
+  const storageDataContacts = JSON.parse(localStorage.getItem("storageDataContacts"));
 
   if (!storageDataContacts) {
     saveContacts(dataContacts);
